@@ -1,0 +1,25 @@
+<div>
+  <%= image_tag @post.get_image %>
+  <p>タイトル：<%= @post.title %></p>
+  <p>本文：<%= @post.body %></p>
+  <p>投稿ユーザー画像：<%= image_tag @post.user.get_profile_image(100,100) %></p>
+  <p>ユーザーネーム：<%= @post.user.name %></p>
+  <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <%= link_to "編集", edit_post_path(@post.id) %>
+  <% if @post.user == current_user %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+  <% if @post.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_favorite_path(@post), method: :delete do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_favorite_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+</div>
