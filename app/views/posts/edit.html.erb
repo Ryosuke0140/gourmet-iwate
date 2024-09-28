@@ -1,13 +1,26 @@
-<h1>編集画面</h1>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h1 class="text-dark bg-light p-4 mb-0">編集画面</h1>
+        <div class="form-body p-4">
 
-<%= form_with model: @post, url: update_post_path(@post.id), method: :patch do |f| %>
+          <%= form_with model: @post, url: update_post_path(@post.id), method: :patch do |f| %>
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+          　<h4>画像</h4>
+          　<%= f.file_field :image, placeholder: "画像", accept: "image/*", class: "w-100"  %>
 
-  <h4>本文</h4>
-  <%= f.text_area :body %>
+          　<div class="patch-group mb-3 mt-4">
+              <h4>店舗名</h4>
+              <%= f.text_field :shop_name, class: "form-control", placeholder: "店舗名" %>
 
-  <%= f.submit '保存' %>
+              <h4>コメント</h4>
+              <%= f.text_area :caption, class: "form-control", rows: "3", placeholder: "コメント" %>
+            </div>
 
-<% end %>
+            <%= f.submit '保存', class: "btn btn-lg btn-block btn-info mt-4"  %>
+
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

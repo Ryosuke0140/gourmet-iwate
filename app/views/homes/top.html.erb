@@ -1,1 +1,32 @@
-<h1>Homes#top</h1>
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h1 class="px-3 mx-auto">ようこそ
+          グルメ岩手！へ
+        </h1>
+        <p>
+          <strong>グルメ岩手！</strong>
+          では,
+        </p>
+        <p>
+          岩手県内のレストランの紹介や美味しいお店を発掘することができます！
+        </p>
+        <p>
+          皆で岩手の美味しいを広めよう！
+        </p>
+        <div class="btn-wrapper col-10 mx-auto">
+          <div class="row">
+            <td>
+              <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sing_in" %>
+            </td>
+          </div>
+          <div class="row">
+            <td>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-sm btn-block sing_up" %>
+            </td>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
